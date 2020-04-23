@@ -1,8 +1,6 @@
-const express = require("express");
+const express = require('express');
 
-const app = express();
-
-app.use(express.json());
+const routes = express.Router();
 
 /**  Métodos HTTP:
  GET: Busca de informaçoes do back-end
@@ -20,7 +18,18 @@ app.use(express.json());
  * 
  */
 
-app.post('/users', (req, res) => {
+/**
+ * Banco de Dados
+ * 
+ * SQL: MySql, SQLite, PostgreSQL, Oracle, Microsoft SQL Server
+ * NoSQL: MongoDB, CouchDB, etc
+ *  - Comunicação com o banco de dados
+ *      Driver: SELECY * FROM users
+ *      Qeury Builder: table('users').select('*').where()
+ */
+
+
+routes.post('/users', (req, res) => {
     const body = req.body;
 
     console.log(body);
@@ -31,4 +40,5 @@ app.post('/users', (req, res) => {
     });
 });
 
-app.listen(3333);
+
+module.exports = routes;
